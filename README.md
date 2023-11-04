@@ -1,3 +1,3 @@
-#beamly.app
+# beamly.app
 
 Music without distraction.
