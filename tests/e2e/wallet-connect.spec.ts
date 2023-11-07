@@ -1,8 +1,11 @@
 import { test, expect } from "@playwright/test";
 
 test("walletConnect", async ({ page }) => {
-  test.setTimeout(120000);
   await page.goto("/");
+  await page.waitForLoadState("domcontentloaded");
+  await page.waitForLoadState("load");
+
+  await expect(page.getByLabel("Connect Wallet")).toBeVisible();
 
   // Test Pera Wallet
   await page.getByLabel("Connect Wallet").hover();

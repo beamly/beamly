@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test("audioPlayer", async ({ page }) => {
-  test.setTimeout(120000);
   await page.goto("/");
+  await page.waitForLoadState("domcontentloaded");
+  await page.waitForLoadState("load");
 
-  await page.getByLabel("Track Title").click();
-
-  expect(page.getByLabel("Track Title")).toHaveText(/.+/);
-
-  expect(page.getByLabel("Track User")).toHaveText(/.+/);
+  await expect(page.getByLabel("Track Title")).toBeVisible();
+  await expect(page.getByLabel("Track Title")).toHaveText(/.+/);
+  await expect(page.getByLabel("Track User")).toBeVisible();
+  await expect(page.getByLabel("Track User")).toHaveText(/.+/);
 
   const audioSrc = await page.evaluate(() => {
     return window.audio?.src ?? "";
