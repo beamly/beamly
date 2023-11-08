@@ -1,3 +1,4 @@
+import { ConnectWallet } from "@/components/connect-wallet";
 import { MainLogo } from "@/components/main-logo";
 import { ModeToggle } from "@/components/toggle-mode";
 
@@ -7,7 +8,8 @@ export function Header() {
       <div className="hidden sm:flex flex items-center px-4">
         <MainLogo />
       </div>
-      <div className="flex items-center pr-4 ml-auto">
+      <div className="flex items-start pr-4 ml-auto">
+        <ConnectWallet />
         <ModeToggle />
       </div>
     </div>

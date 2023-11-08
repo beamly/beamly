@@ -26,7 +26,9 @@ export function SelectGenre({ genre, className, ...props }: SelectGenreProps) {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>{toTitleCase(genre)}</NavigationMenuTrigger>
+          <NavigationMenuTrigger aria-label="Select Genre">
+            {toTitleCase(genre)}
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[160px] lg:w-[200px] ">
               {genres.map((item) => (
